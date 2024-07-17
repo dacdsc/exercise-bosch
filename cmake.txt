@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(QueueTest)
+
+# Enable C++11
+set(CMAKE_CXX_STANDARD 11)
+
+# Add the Google Test framework
+add_subdirectory(googletest)
+
+# Add the source files
+add_library(Queue queue.cpp)  # Adjust according to your file structure
+
+# Add the test executable
+add_executable(QueueTest test_queue.cpp)
+
+# Link the test executable against Google Test and pthread
+target_link_libraries(QueueTest gtest gtest_main pthread Queue)
